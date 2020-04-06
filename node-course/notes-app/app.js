@@ -5,13 +5,14 @@
 
 // const validator = require('validator');  // add npm  validator -- npm package
 // const add = require('./utils.js');  // import from another Js file --  
+const fs = require('fs');
 const yargs = require('yargs');
 const chalk = require('chalk');
-// const notes = require('./notes.js');
-const fs = require('fs');
+const notes = require('./notes.js');
 
-fs.writeFileSync('notes.txt', 'Welcome to Node.');
-fs.appendFileSync('notes.txt', ' From now we are look for new job.');
+
+// fs.writeFileSync('notes.txt', 'Welcome to Node.');
+// fs.appendFileSync('notes.txt', ' From now we are look for new job.');
 
 // const sum = add(2, 3);  // declare sum and call func from another file
 // console.log(sum);
@@ -50,17 +51,36 @@ yargs.version('1.0.2');
 yargs.command({
   command: 'add',
   describe: 'add new note',
-  handler() {
-    console.log(`Adding new note`);
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    },
+    body: {
+      describe: 'Note body',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.addNote(argv.title, argv.body);
   }
 })
 
-// create remove  
+//   remove   command
 yargs.command({
   command: 'remove',
   describe: 'Remove note',
-  handler() {
-    console.log(`Removing note`);
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.removeNote(argv.title);
   }
 })
 
@@ -76,10 +96,10 @@ yargs.command({
 // read command
 yargs.command({
   command: 'read',
-  describe: 'Read notes',
+  describe: 'Read note',
   handler() {
-    console.log(`Read all notes`);
+    console.log(`Read note`);
   }
 })
 
-console.log(yargs.argv);
+yargs.parse();
