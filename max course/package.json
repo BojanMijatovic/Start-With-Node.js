@@ -1,0 +1,16 @@
+{
+  "name": "max-course",
+  "version": "1.0.0",
+  "description": "Starting with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node first-app.js",
+    "start-server": "node first-app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
