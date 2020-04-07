@@ -1,0 +1,21 @@
+{
+  "name": "simple-projects",
+  "version": "1.0.0",
+  "description": "Starting new simple express project",
+  "main": "newProject.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node newProject.js",
+    "start-server": "node newProject.js"
+  },
+  "keywords": [
+    "express",
+    "js"
+  ],
+  "author": "Bojan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
