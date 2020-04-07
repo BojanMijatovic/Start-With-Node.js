@@ -1,7 +1,8 @@
+const http = require('http');
 
-const name = 'Alex';
+const server = http.createServer((req, res) => {
+  console.log(req);
+}
+)
 
-const add = (x, y) => x + y;
-
-
-module.exports = add;
+server.listen(1515);

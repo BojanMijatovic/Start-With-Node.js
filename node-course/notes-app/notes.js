@@ -1,6 +1,6 @@
 const fs = require('fs');
 const chalk = require('chalk');
-const getNote = () => `Here is note`;
+
 
 const addNote = (title, body) => {
   const notes = loadNotes();
@@ -68,11 +68,13 @@ const readNote = (title) => {
 }
 
 
-
 module.exports = {
-  getNotes: getNote,
   addNote: addNote,
   removeNote: removeNote,
   listNotes: listNotes,
   readNote: readNote
 };
+
+
+
+//Mindhunter - Season 1 - Mp4 x264 AC3 1080p
