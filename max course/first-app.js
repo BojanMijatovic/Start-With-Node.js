@@ -1,15 +1,20 @@
 const express = require('express');
-
 const app = express();
 
-app.use('/add-product', (req, res, next) => {
-  res.send('<h1>Add Product  Page</h1>');
-});
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');   // routes 
+
+const bodyParser = require('body-parser');  //require to parse  body
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.use('/', (req, res, next) => {
-  res.send('<h1>Hello form Node.js  Express </h1>');
-});
 
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
+
+
+app.use((req, res, next) => {
+  res.status(404).send(`<h1>Page not found </h1>`);
+})
 
 app.listen(3000);
