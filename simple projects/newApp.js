@@ -9,7 +9,7 @@ const app = express();  // use express
 const mainPageRoute = require('./routes/main-page');  // import pages with router 
 const contactUsRoute = require('./routes/contact-us');
 const homeRoot = require('./routes/home');
-
+const addFile = require('./routes/add-files');
 
 /*
 Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(mainPageRoute);  // use pages form ROUTER!!!  
 app.use(contactUsRoute);
 app.use(homeRoot);
+app.use(addFile);
+
 
 app.use((req, res, next) => {
   res.status(404).send(`<h1>Page not found </h1>`);
