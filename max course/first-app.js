@@ -2,15 +2,14 @@ const express = require('express');
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log(`Here from log`);
-  next();
-})
+app.use('/add-product', (req, res, next) => {
+  res.send('<h1>Add Product  Page</h1>');
+});
 
-app.use((req, res, next) => {
-  res.send('<h1>Hello form Express </h1>');
-  next();
-})
+
+app.use('/', (req, res, next) => {
+  res.send('<h1>Hello form Node.js  Express </h1>');
+});
 
 
 app.listen(3000);
