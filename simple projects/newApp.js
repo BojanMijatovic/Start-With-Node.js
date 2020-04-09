@@ -6,6 +6,8 @@
 const express = require('express');
 const app = express();  // use express
 
+const path = require('path');
+
 const mainPageRoute = require('./routes/main-page');  // import pages with router 
 const contactUsRoute = require('./routes/contact-us');
 const homeRoot = require('./routes/home');
@@ -26,7 +28,7 @@ app.use(addFile);
 
 
 app.use((req, res, next) => {
-  res.status(404).send(`<h1>Page not found </h1>`);
+  res.status(404).sendFile(path.join(__dirname, '.', 'views', '404.html'))
 })
 
 
