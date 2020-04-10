@@ -2,6 +2,26 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+
+//  Template engines --- pug  // handlebars // ejs
+/*
+
+    views, the directory where the template files are located. Eg: app.set('views', './views'). This defaults to the views directory in the application root directory.
+    view engine, the template engine to use. For example, to use the Pug template engine: app.set('view engine', 'pug').
+
+      Then install the corresponding template engine npm package; for example to install Pug:
+              ------  npm install pug --save
+              
+      Create a Pug template file named index.pug in the views directory, with the following content:
+
+      app.get('/', function (req, res) {
+        res.render('index', { title: 'Hey', message: 'Hello there!' })
+      })
+
+When you make a request to the home page, the index.pug file will be rendered as HTML.
+
+Note: The view engine cache does not cache the contents of the template’s output, only the underlying template itself. The view is still re-rendered with every request even when the cache is on.
+*/
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
@@ -24,7 +44,6 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render('page-not-found');
-
 })
 
 app.listen(3000);
