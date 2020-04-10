@@ -8,6 +8,9 @@ const app = express();  // use express
 
 const path = require('path');
 
+
+app.use(express.static(path.join(__dirname, 'public'))) // --- this is how import css file on project
+
 const mainPageRoute = require('./routes/main-page');  // import pages with router 
 const contactUsRoute = require('./routes/contact-us');
 const homeRoot = require('./routes/home');
