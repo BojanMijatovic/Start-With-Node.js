@@ -22,7 +22,7 @@ When you make a request to the home page, the index.pug file will be rendered as
 
 Note: The view engine cache does not cache the contents of the template’s output, only the underlying template itself. The view is still re-rendered with every request even when the cache is on.
 */
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 
@@ -43,7 +43,7 @@ app.use(shopRoutes);
 
 
 app.use((req, res, next) => {
-  res.status(404).render('page-not-found');
+  res.status(404).render('404', { pageTitle: 'Page not found' });
 })
 
 app.listen(3000);
